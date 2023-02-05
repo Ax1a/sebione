@@ -21,13 +21,23 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('users.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
+                <a href="{{ route('companies.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-building"></i>
                     <p>
-                        {{ __('Users') }}
+                        {{ __('Companies') }}
                     </p>
                 </a>
             </li>
+
+            {{-- <li class="nav-item">
+                <a href="{{ route('employees.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>
+                        {{ __('Employees') }}
+                    </p>
+                </a>
+            </li> --}}
+
 
             <li class="nav-item">
                 <a href="{{ route('about') }}" class="nav-link">

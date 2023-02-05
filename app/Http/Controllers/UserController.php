@@ -10,6 +10,6 @@ class UserController extends Controller
     {
         $users = User::paginate();
 
-        return view('users.index', compact('users'));
+        return view('employees.index', compact('users'));
     }
 }
