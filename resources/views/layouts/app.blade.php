@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @yield('styles')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -59,7 +60,7 @@
             <img src="{{ asset('images/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <span class="brand-text font-weight-light"><b>Mini</b>-CRM</span>
         </a>
 
         @include('layouts.navigation')
@@ -88,7 +89,7 @@
             Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        <strong>Made by:</strong> Francis Fernandez
     </footer>
 </div>
 <!-- ./wrapper -->

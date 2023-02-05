@@ -6,3 +6,19 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.company.card {
+    max-width: 300px;
+    min-width: 300px;
+    width: 100%;
+}
+
+.company  {
+    img  {
+        max-width: 200px !important;
+    }
+}
+
+.card-footer.d-flex{
+    gap:8px;
+}
