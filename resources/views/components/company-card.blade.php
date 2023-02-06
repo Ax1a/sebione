@@ -2,7 +2,7 @@
 
 <div class="company card">
     <div class="card-header">
-      <img src="{{$company->logo ? asset('storage/' . $company->logo) : asset('/images/no-image.svg')}}" alt="">
+      <img class="companyLogo" src="{{$company->logo ? asset('storage/' . $company->logo) : asset('/images/no-image.svg')}}" alt="">
       <p>{{$company->name}}</p>
       {{-- <div class="card-tools"> --}}
         <!-- Buttons, labels, and many other things can be placed here! -->
@@ -17,11 +17,11 @@
         <p>{{$company->website}}</p>
     </div>
     <!-- /.card-body -->
-    <div class="card-footer d-flex">
-        <a href="/companies/{{$company->id}}" class="btn btn-success"><i class="fas fa-users"></i> Employees</a>
+    <div class="card-footer d-flex no-wrap">
+        <a href="/companies/{{$company->id}}" class="btn btn-success w-100"><i class="fas fa-info-circle"></i> Details</a>
         <a href="/companies/{{$company->id}}/edit" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 
-        <form  method="POST" action="/companies/{{$company->id}}">
+        <form method="POST" action="/companies/{{$company->id}}">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger"><i class="fas fa-trash"></i></button>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/fontawesome.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @yield('styles')
 </head>
@@ -60,7 +61,7 @@
             <img src="{{ asset('images/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8">
-            <span class="brand-text font-weight-light"><b>Mini</b>-CRM</span>
+            <span class="brand-text font-weight-light"><b>SEBI</b> One</span>
         </a>
 
         @include('layouts.navigation')
@@ -99,7 +100,8 @@
 @vite('resources/js/app.js')
 <!-- AdminLTE App -->
 <script src="{{ asset('js/adminlte.min.js') }}" defer></script>
-
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 @yield('scripts')
+
 </body>
 </html>

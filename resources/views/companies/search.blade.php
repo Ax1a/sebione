@@ -1,28 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">{{ __('Companies') }}</h1>
+                    <h1 class="m-0">{{ __('Companies2') }}</h1>
                     <div class="row my-3">
                         <div class="col-md-8">
-                            @include('partials._search')
+                             <form type="get" action="{{ route('companies.search') }}">
+                                <div class="input-group">
+                                    <input type="search" class="form-control form-control-lg" name="query" placeholder="Type your keywords here">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-lg btn-secondary">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="col-md-auto">
                             <a href="/companies/add" class="btn btn-success">Add Company</a>
                         </div>
 
                     </div>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
             <div class="d-flex flex-wrap">
@@ -54,9 +60,7 @@
                   </li>
                 </ul>
               </nav> --}}
-              <div class="mt-6 p-4">
-                {{$companies->links()}}
-              </div>
+              {{$companies->onEachSide(1)->links()}}
             <!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
