@@ -10,8 +10,12 @@ class CompanyController extends Controller
 {
     public function index()
     {
+        // return view('companies.index', [
+        //     'companies' => Company::paginate(10)
+        // ]);
+
         return view('companies.index', [
-            'companies' => Company::all()
+            'companies' => Company::latest()->filter(request(['search']))->paginate(10)
         ]);
     }
 
@@ -73,4 +77,12 @@ class CompanyController extends Controller
        // return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
        return redirect('/companies')->with('success', 'Company created successfully!');
    }
+
+    public function search(Request $request) {
+        $search_text = $request->input('query');
+        $companies = Company::where('name', 'LIKE', '%' . $search_text . '%')->get();
+
+        return view('search', compact('companies'));
+   }
+
 }

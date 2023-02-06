@@ -13,12 +13,10 @@
     width: 100%;
 }
 
-.company  {
-    img  {
-        max-width: 200px !important;
-    }
-}
-
 .card-footer.d-flex{
     gap:8px;
+}
+
+.companyLogo {
+    width: 200px;
 }
