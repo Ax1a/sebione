@@ -99,8 +99,8 @@
 
 @vite('resources/js/app.js')
 <!-- AdminLTE App -->
-<script src="{{ asset('js/adminlte.min.js') }}" defer></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="{{ asset('js/adminlte.min.js') }}" defer></script>
 @yield('scripts')
 
 </body>

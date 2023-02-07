@@ -32,7 +32,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/companies', [CompanyController::class, 'index'])->name('companies.index');
     Route::get('/companies/add', [CompanyController::class, 'create'])->name('companies.add-company');
     Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])->name('companies.edit-company');
-    Route::get('/companies/{company}', [CompanyController::class, 'show']);
 
     // Company Methods
     Route::post('/companies', [CompanyController::class, 'store']);
@@ -41,7 +40,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/companies/search', [CompanyController::class, 'search'])->name('companies.search');
 
     // Employee Routes
-    Route::get('/companies/{company}/add', [EmployeeController::class, 'create'])->name('employees.add-employee');
+    Route::get('/companies/{company}', [EmployeeController::class, 'index']);
+    Route::get('/companies/{company}/add-employee', [EmployeeController::class, 'create'])->name('employees.add-employee');
+    Route::get('/companies/{company}/edit-employee/{employee}', [EmployeeController::class, 'edit'])->name('employees.edit-employee');
+
+    // Employee Methods
+    Route::post('/companies/{company}/add-employee', [EmployeeController::class, 'store']);
+    Route::put('/companies/{company}/edit-employee/{employee}', [EmployeeController::class, 'update']);
+    Route::delete('/companies/{company}/delete-employee/{employee}', [EmployeeController::class, 'destroy']);
 
     Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');

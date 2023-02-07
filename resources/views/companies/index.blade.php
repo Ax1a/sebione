@@ -11,19 +11,15 @@
                         <div class="col-md-8">
                             @include('partials._search')
                         </div>
-                        <div class="col-md-auto">
+                        <div class="col-md-aut">
                             <a href="/companies/add" class="btn btn-success">Add Company</a>
                         </div>
-
                     </div>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
+    <div class="content company">
         <div class="container-fluid">
             <div class="d-flex flex-wrap">
                 @unless(count($companies) == 0)
@@ -37,30 +33,9 @@
 
                 @endunless
             </div>
-            {{-- <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav> --}}
               <div class="mt-6 p-4">
                 {{$companies->links()}}
               </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content -->
-
-
 @endsection

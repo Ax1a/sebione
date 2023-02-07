@@ -10,10 +10,6 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        // return view('companies.index', [
-        //     'companies' => Company::paginate(10)
-        // ]);
-
         return view('companies.index', [
             'companies' => Company::latest()->filter(request(['search']))->paginate(10)
         ]);
@@ -21,12 +17,6 @@ class CompanyController extends Controller
 
     public function create() {
         return view('companies/add-company');
-    }
-
-    public function show(Company $company) {
-        return view('employees.index', [
-            'company' => $company
-        ]);
     }
 
     public function store(Request $request) {
@@ -73,16 +63,8 @@ class CompanyController extends Controller
 
        //  Store data in database
        $company->update($formFields);
-       //
-       // return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
-       return redirect('/companies')->with('success', 'Company created successfully!');
-   }
 
-    public function search(Request $request) {
-        $search_text = $request->input('query');
-        $companies = Company::where('name', 'LIKE', '%' . $search_text . '%')->get();
-
-        return view('search', compact('companies'));
+       return redirect('/companies')->with('success', 'Company updated successfully!');
    }
 
 }
