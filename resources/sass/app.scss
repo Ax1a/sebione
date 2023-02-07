@@ -8,9 +8,7 @@
 @import 'bootstrap/scss/bootstrap';
 
 .company.card {
-    max-width: 300px;
-    min-width: 300px;
-    width: 100%;
+    width: 320px;
 }
 
 .card-footer.d-flex{
@@ -20,3 +18,18 @@
 .companyLogo {
     width: 200px;
 }
+
+.company {
+    .companyLogo {
+        max-width: 100px;
+        position: absolute;
+        bottom: -36px;
+        max-height: 80px;
+    }
+
+    .card-header {
+        height: 60px;
+    }
+}
+
+

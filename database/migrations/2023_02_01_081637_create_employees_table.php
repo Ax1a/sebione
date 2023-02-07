@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('email');
             $table->string('phone');
-            $table->foreignId('company_id')->constrained();
+            $table->foreignId('company_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
