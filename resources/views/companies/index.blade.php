@@ -21,10 +21,10 @@
     </div>
     <div class="content company">
         <div class="container-fluid">
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap results">
                 @unless(count($companies) == 0)
                 @foreach ($companies as $company)
-                <div class="mr-3">
+                <div class="cardContainer">
                     <x-company-card :company="$company"/>
                 </div>
                 @endforeach
@@ -33,7 +33,7 @@
 
                 @endunless
             </div>
-              <div class="mt-6 p-4">
+              <div class="my-4">
                 {{$companies->links()}}
               </div>
         </div>

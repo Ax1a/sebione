@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="content-header">
+    <div class="content-header employee">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
@@ -11,9 +11,9 @@
                             <img class="companyLogo" src="{{$company->logo ? asset('storage/' . $company->logo) : asset('/images/no-image.svg')}}" alt="">
                         </div>
                         <div>
-                            <h1 class="m-0">{{$company->name}}</h1>
-                            <p>{{$company->email}}</p>
-                            <p>{{$company->website}}</p>
+                            <h1 class="m-0 font-weight-bold">{{$company->name}}</h1>
+                            <h4 class="mt-3 mb-0"><b>Email:</b> {{$company->email}}</h4>
+                            <h4><b>Website:</b> {{$company->website}}</h4>
                         </div>
                     </div>
                 </div>
