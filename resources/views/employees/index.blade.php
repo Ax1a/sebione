@@ -4,8 +4,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 @endsection
 @section('content')
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content-header employee">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
@@ -21,11 +20,10 @@
                         </div>
                     </div>
                     <a href="/companies/{{$company->id}}/add-employee" class="btn btn-success my-3">Add Employee</a>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
     <!-- Main content -->
     <div class="content">
@@ -51,7 +49,7 @@
                                       <td>{{$employee->email}}</td>
                                       <td>{{$employee->phone}}</td>
                                       <td class="d-flex">
-                                        <a href="/companies/{{$company->id}}/edit-employee/{{$employee->id}}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="/companies/{{$company->id}}/edit-employee/{{$employee->id}}" class="btn btn-primary mr-2"><i class="fas fa-edit"></i></a>
 
                                         <form method="POST" action="/companies/{{$company->id}}/delete-employee/{{$employee->id}}">
                                             @csrf

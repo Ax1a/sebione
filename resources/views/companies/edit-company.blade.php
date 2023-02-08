@@ -11,7 +11,7 @@
             </div>
         </div>
     </div>
-    <div class="content">
+    <div class="content editCompany">
         <div class="container-fluid">
             <form method="POST" action="/companies/{{$company->id}}" enctype="multipart/form-data">
                 @csrf
@@ -47,7 +47,7 @@
                     <div class="mb-3">
                         <label for="logo" class="form-label">Logo</label>
                         <input class="form-control" type="file" id="logo" name="logo">
-                        <img src="{{$company->logo ? asset('storage/' . $company->logo) : asset('/images/no-image.svg')}}" alt="">
+                        <img class="companyLogo" src="{{$company->logo ? asset('storage/' . $company->logo) : asset('/images/no-image.svg')}}" alt="">
                         @if ($errors->has('logo'))
                         <div class="error">
                             {{ $errors->first('logo') }}
