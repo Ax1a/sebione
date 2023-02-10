@@ -16,8 +16,8 @@
                         </div>
                         <div>
                             <h1 class="m-0 font-weight-bold">{{$company->name}}</h1>
-                            <h4 class="mt-3 mb-0"><b>Email:</b> {{$company->email}}</h4>
-                            <h4><b>Website:</b> {{$company->website}}</h4>
+                            <h4 class="mt-3 mb-0 text-muted font-weight-normal"><b>Email:</b> {{$company->email}}</h4>
+                            <h4 class="text-muted font-weight-normal"><b>Website:</b> {{$company->website}}</h4>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             </div>
                             {{-- Company ID --}}
                             <input type="text" class="form-control" id="companyIDInput" placeholder="0912345678" name="company_id" value="{{$company->id}}" hidden>
-                            <button type="submit" class="btn btn-primary">Update Employee</button>
+                            <button type="submit" class="btn btn-success">Update Employee</button>
                         </form>
                     </div>
                 </div>

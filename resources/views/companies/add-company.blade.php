@@ -52,7 +52,7 @@
                             </div>
                             <div class="preview-holder my-3">
                                 <img id="preview-image-before-upload" src="{{asset('/images/no-image.svg')}}"
-                                    alt="preview image" style="max-height: 200px;">
+                                    alt="preview image" style="max-height: 200px; max-width: 300px">
                             </div>
                             @if ($errors->has('logo'))
                             <div class="error">
