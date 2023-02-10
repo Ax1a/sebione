@@ -19,8 +19,8 @@
                         </div>
                         <div>
                             <h1 class="m-0 font-weight-bold">{{$company->name}}</h1>
-                            <h4 class="mt-3 mb-0"><b>Email:</b> {{$company->email}}</h4>
-                            <h4><b>Website:</b> {{$company->website}}</h4>
+                            <h4 class="mt-3 mb-0 text-muted font-weight-normal"><b>Email:</b> {{$company->email}}</h4>
+                            <h4 class="text-muted font-weight-normal"><b>Website:</b> {{$company->website}}</h4>
                         </div>
                     </div>
                     <a href="/companies/{{$company->id}}/add-employee" class="btn btn-success my-3">Add Employee</a>

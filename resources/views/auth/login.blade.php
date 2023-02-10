@@ -1,8 +1,8 @@
 @extends('layouts.guest')
 
 @section('content')
-    <div class="card-body login-card-body">
-        <p class="login-box-msg">{{ __('Login') }}</p>
+    <div class="card-body login-card-body px-5 py-5">
+        <h1 class="mb-5 font-weight-bold">{{ __('Login') }}</h1>
 
         <form action="{{ route('login') }}" method="post">
             @csrf
@@ -35,7 +35,7 @@
                 @enderror
             </div>
 
-            <div class="row">
+            <div class="row my-4">
                 <div class="col-8">
                     <div class="icheck-primary">
                         <input type="checkbox" id="remember" name="remember">
