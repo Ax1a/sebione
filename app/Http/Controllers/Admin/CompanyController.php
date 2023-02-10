@@ -28,19 +28,31 @@ class CompanyController extends Controller
         ]);
 
         if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+            $request->validate([
+                'logo' => 'required|mimes:png,jpg,jpeg,svg|max:2048||dimensions:min_width=100,min_height=100'
+            ]);
+
+            try{
+                $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+
+                //  Store data in database
+                Company::create($formFields);
+
+                return redirect('/companies')->with('success', 'Company has been created!');
+            }catch(\Exception $e){
+                return redirect()->back()->with('error','Something goes wrong while uploading file!');
+            }
         }
 
         //  Store data in database
         Company::create($formFields);
-        //
-        // return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
-        return redirect('/companies')->with('success', 'Company created successfully!');
+
+        return redirect('/companies')->with('success', 'Company has been created!');
     }
 
     public function destroy(Company $company){
         $company->delete();
-        return redirect('/companies')->with('success', 'Company deleted successfully!');
+        return redirect('/companies')->with('success', 'Company has been deleted!');
     }
 
     public function edit(Company $company) {
@@ -58,13 +70,27 @@ class CompanyController extends Controller
        ]);
 
        if($request->hasFile('logo')) {
-           $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-       }
+            $request->validate([
+                'logo' => 'required|mimes:png,jpg,jpeg,svg|max:2048||dimensions:min_width=100,min_height=100'
+            ]);
+
+            try{
+                $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+
+                //  Store data in database
+                $company->update($formFields);
+
+                return redirect('/companies')->with('success', 'Your changes has been saved!');
+            }catch(\Exception $e){
+                return redirect()->back()->with('error','Something goes wrong while uploading file!');
+            }
+        }
+
 
        //  Store data in database
        $company->update($formFields);
 
-       return redirect('/companies')->with('success', 'Company updated successfully!');
+       return redirect('/companies')->with('success', 'Your changes has been saved!');
    }
 
 }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Edit Employee
+@endsection
+
 @section('content')
     <div class="content-header employee">
         <div class="container-fluid">
@@ -30,7 +34,7 @@
                             @method('PUT')
                             <div class="d-flex flex-wrap">
                                 <div class="mb-3 flex-fill mr-3">
-                                    <label for="firstNameInput" class="form-label">First Name</label>
+                                    <label for="firstNameInput" class="form-label">First Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="firstNameInput" placeholder="Juan" name="first_name" value="{{$employee->first_name}}">
                                     @if ($errors->has('first_name'))
                                     <div class="error">
@@ -39,7 +43,7 @@
                                     @endif
                                 </div>
                                 <div class="mb-3 flex-fill ml-3">
-                                    <label for="lastNameInput" class="form-label">Last Name</label>
+                                    <label for="lastNameInput" class="form-label">Last Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="lastNameInput" placeholder="Dela Cruz" name="last_name" value="{{$employee->last_name}}">
                                     @if ($errors->has('last_name'))
                                     <div class="error">
@@ -50,7 +54,7 @@
                             </div>
                             <div class="d-flex flex-wrap">
                                 <div class="mb-3 flex-fill mr-3">
-                                    <label for="emailInput" class="form-label">Email</label>
+                                    <label for="emailInput" class="form-label">Email <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control" id="emailInput" placeholder="abc@example.com" name="email" value="{{$employee->email}}">
                                     @if ($errors->has('email'))
                                     <div class="error">
@@ -59,7 +63,7 @@
                                     @endif
                                 </div>
                                 <div class="mb-3 flex-fill ml-3">
-                                    <label for="phoneInput" class="form-label">Phone</label>
+                                    <label for="phoneInput" class="form-label">Phone <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="phoneInput" placeholder="0912345678" name="phone" value="{{$employee->phone}}">
                                     @if ($errors->has('phone'))
                                     <div class="error">

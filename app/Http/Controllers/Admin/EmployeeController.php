@@ -39,7 +39,7 @@ class EmployeeController extends Controller
        Employee::create($formFields);
 
        // return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
-       return redirect('/companies/' . $company->id)->with('success', 'Employee created successfully!');
+       return redirect('/companies/' . $company->id)->with('success', 'Employee has been created!');
    }
 
    public function update(Request $request, Company $company, Employee $employee) {
@@ -54,7 +54,7 @@ class EmployeeController extends Controller
         //  Store data in database
         $employee->update($formFields);
 
-        return redirect('/companies/'. $company->id)->with('success', 'Employee updated successfully!');
+        return redirect('/companies/'. $company->id)->with('success', 'Your changes has been saved!');
    }
 
    public function edit(Company $company, Employee $employee) {
@@ -66,8 +66,8 @@ class EmployeeController extends Controller
    }
 
    public function destroy(Company $company, Employee $employee){
-    $employee->delete();
-    return redirect('/companies/' . $company->id)->with('success', 'Company deleted successfully!');
-}
+        $employee->delete();
+        return redirect('/companies/' . $company->id)->with('success', 'Employee has been deleted!');
+    }
 
 }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Employees
+@endsection
+
 @section('styles')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
 @endsection
@@ -54,7 +58,7 @@
                                         <form method="POST" action="/companies/{{$company->id}}/delete-employee/{{$employee->id}}">
                                             @csrf
                                             @method('DELETE')
-                                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                            <button class="btn btn-danger show_confirm"><i class="fas fa-trash"></i></button>
                                         </form>
                                       </td>
                                     </tr>
@@ -71,7 +75,7 @@
 @endsection
 
 @section('scripts')
-<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js" defer></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js" defer></script>
     <script>
         $(document).ready( function () {
             $('#employees').DataTable({
@@ -81,5 +85,56 @@
                 responsive: true
             });
         } );
+    </script>
+
+    @if(Session::has('success'))
+        <script defer>
+            var toastMixin = Swal.mixin({
+                toast: true,
+                icon: 'success',
+                title: 'General Title',
+                animation: false,
+                position: 'top-right',
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                width: '28em',
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            });
+
+            toastMixin.fire({
+                animation: true,
+                title: '{{session()->get('success')}}'
+            });
+        </script>
+    @endif
+
+    <script defer>
+        $('.show_confirm').click(function (event) {
+                var form = $(this).closest("form");
+                var name = $(this).data("name");
+
+                event.preventDefault();
+
+                Swal.fire({
+                    title:'Are you sure?',
+                    text: "This process cannot be undone.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: 'Yes, delete it!',
+                    cancelButtonText: 'No, cancel!',
+                    confirmButtonColor: '#d33',
+                    reverseButtons: true,
+                    dangerMode: true
+                })
+                .then((willDelete) => {
+                    if(willDelete.isConfirmed) {
+                        form.submit();
+                    }
+                })
+            })
     </script>
 @endsection

@@ -7,25 +7,53 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+h1 {
+    font-weight: 700;
+}
+
 .company.card {
     width: 300px;
+
+   .d-flex{
+        gap:8px;
+    }
+
+    h3 {
+        font-size: 1.7em;
+    }
+
+    .textContainer:not(h3) {
+        color: rgb(95, 95, 95);
+    }
 }
 
-.card-footer.d-flex{
-    gap:8px;
-}
-
-.employee, .editCompany {
+.employee, .editCompany, .addCompany {
     .companyLogo {
         width: 200px;
     }
 }
 
+.textContainer {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .company {
-    .companyLogo {
+    .imageContainer {
         position: absolute;
-        bottom: -36px;
-        max-height: 80px;
+        margin-top: 8px;
+        height: 80px;
+        max-width: 130px;
+        display: flex;
+        align-items: center;
+
+        .companyLogo {
+            width: 100%;
+            max-height: 80px;
+            background-color: white;
+        }
     }
 
     .card-header {
@@ -41,6 +69,34 @@
     color: red;
 }
 
+.socials {
+    font-size: 1.7em;
+    transition: .5s ease all;
+}
+
+.socials a:hover {
+    color: rgb(80, 80, 80) !important;
+    transition: .5s ease all;
+}
+
+.fa-arrow-left {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.logout:hover {
+    a {
+        background-color: rgba(255,255,255,.1) !important;
+        color: white !important;
+    }
+
+}
+
+.card {
+    box-shadow: 0 0 1px rgb(0 0 0 / 5%), 0 1px 3px rgb(0 0 0 / 5%);
+}
+
 @media only screen and (max-width: 677px) {
     .company.card {
         width: 100%;
@@ -49,4 +105,20 @@
     .cardContainer {
         width: 100%;
     }
-  }
+}
+
+// File upload styles
+.file-upload{display:block;text-align:center;font-family: Helvetica, Arial, sans-serif;font-size: 12px;}
+.file-upload .file-select{display:block;border: 1px solid #ced4da;color: #34495e;cursor:pointer;height:40px;line-height:40px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+.file-upload .file-select .file-select-button{background:#ced4da;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+.file-upload .file-select .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+.file-upload .file-select:hover{border-color:#3a3a3a;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload .file-select:hover .file-select-button{background:#3a3a3a;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload.active .file-select{border-color:#3fa46a;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload.active .file-select .file-select-button{background:#3fa46a;color:#FFFFFF;transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-webkit-transition:all .2s ease-in-out;-o-transition:all .2s ease-in-out;}
+.file-upload .file-select input[type=file]{z-index:100;cursor:pointer;position:absolute;height:100%;width:100%;top:0;left:0;opacity:0;filter:alpha(opacity=0);}
+.file-upload .file-select.file-select-disabled{opacity:0.65;}
+.file-upload .file-select.file-select-disabled:hover{cursor:default;display:block;border: 1px solid #dce4ec;color: #34495e;cursor:pointer;height:40px;line-height:40px;margin-top:5px;text-align:left;background:#FFFFFF;overflow:hidden;position:relative;}
+.file-upload .file-select.file-select-disabled:hover .file-select-button{background:#dce4ec;color:#666666;padding:0 10px;display:inline-block;height:40px;line-height:40px;}
+.file-upload .file-select.file-select-disabled:hover .file-select-name{line-height:40px;display:inline-block;padding:0 10px;}
+.file-select{border-radius: .25rem !important;}
