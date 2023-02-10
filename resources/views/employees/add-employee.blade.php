@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Add Employee
+@endsection
+
 @section('content')
     <div class="content-header employee">
         <div class="container-fluid">
@@ -27,9 +31,9 @@
                     <div class="p-5 card card-outline card-primary">
                         <form method="POST" action="/companies/{{$company->id}}/add-employee">
                             @csrf
-                            <div class="d-flex flex-wrap">
-                                <div class="mb-3 flex-fill mr-3">
-                                    <label for="firstNameInput" class="form-label">First Name</label>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="firstNameInput" class="form-label">First Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="firstNameInput" placeholder="Juan" name="first_name">
                                     @if ($errors->has('first_name'))
                                     <div class="error">
@@ -37,8 +41,8 @@
                                     </div>
                                     @endif
                                 </div>
-                                <div class="mb-3 flex-fill ml-3">
-                                    <label for="lastNameInput" class="form-label">Last Name</label>
+                                <div class="mb-3 col-md-6">
+                                    <label for="lastNameInput" class="form-label">Last Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="lastNameInput" placeholder="Dela Cruz" name="last_name">
                                     @if ($errors->has('last_name'))
                                     <div class="error">
@@ -47,9 +51,9 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="d-flex flex-wrap">
-                                <div class="mb-3 flex-fill mr-3">
-                                    <label for="emailInput" class="form-label">Email</label>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <label for="emailInput" class="form-label">Email <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control" id="emailInput" placeholder="abc@example.com" name="email">
                                     @if ($errors->has('email'))
                                     <div class="error">
@@ -57,8 +61,8 @@
                                     </div>
                                     @endif
                                 </div>
-                                <div class="mb-3 flex-fill ml-3">
-                                    <label for="phoneInput" class="form-label">Phone</label>
+                                <div class="mb-3 col-md-6">
+                                    <label for="phoneInput" class="form-label">Phone <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" id="phoneInput" placeholder="0912345678" name="phone">
                                     @if ($errors->has('phone'))
                                     <div class="error">
