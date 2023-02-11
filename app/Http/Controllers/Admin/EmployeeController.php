@@ -20,6 +20,7 @@ class EmployeeController extends Controller
     }
 
     public function create(Company $company) {
+
         return view('employees.add-employee', [
             'company' => $company
         ]);
